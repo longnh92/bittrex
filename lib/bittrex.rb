@@ -1,4 +1,6 @@
 require "bittrex/version"
+require './lib/util/format.rb'
+require './lib/util/wallet.rb'
 
 module Bittrex
   autoload :Helpers,       'bittrex/helpers'

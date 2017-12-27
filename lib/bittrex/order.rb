@@ -23,6 +23,29 @@ module Bittrex
       @closed_at = extract_timestamp(attrs['Closed'])
     end
 
+    def self.buy(market, quantity, rate)
+      client.get('market/buylimit',
+        market: market,
+        quantity: quantity,
+        rate: rate
+      )
+    end
+
+
+    def self.sell(market, quantity, rate)
+      client.get('market/selllimit',
+        market: market_name,
+        quantity: quantity,
+        rate: rate
+      )
+    end
+
+    def self.cancel(order_id)
+      client.get('market/cancel',
+        uuid: order_id
+      )
+    end
+
     def self.book(market, type, depth = 50)
       orders = []
 
